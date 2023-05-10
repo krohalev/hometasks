@@ -14,7 +14,10 @@
 # [4] => 1 вышел, 4 остался последним т.е. выжившим - это наш ответ survivor.
 
 def josephus_task(num_people, kill_num):
-    # Здесь нужно написать код
+    survivor = 0
+    for i in range(1, num_people + 1):
+        survivor = (survivor + kill_num) % i
+    survivor += 1
     return survivor
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
