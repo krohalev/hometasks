@@ -24,16 +24,6 @@ def max_division_by_3(num):
                 x += 3
             new_num = int(num[:i] + str(x) + num[i + 1:])
             return new_num
-        else:
-            x = int(num[-1])
-            if ost == 1:
-                x -= 2
-            elif ost == 2:
-                x -= 1
-            else:
-                x -= 3
-            new_num = num[:-1] + str(x)
-    return new_num
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
