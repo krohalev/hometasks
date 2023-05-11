@@ -5,9 +5,11 @@
 # Например (Ввод --> Вывод) :
 # 'letter' --> {'l': 1, 'e': 2, 't': 2, 'r': 1}
 
+import collections
+
 
 def letter_stat(our_str):
-    # Здесь нужно написать код
+    letters_dict = dict(collections.Counter(our_str))
     return letters_dict
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
