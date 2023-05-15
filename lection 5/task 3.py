@@ -19,7 +19,16 @@
 
 
 def everything_for_your_cat(cats_data):
-    # Здесь нужно написать код
+    our_str = ''
+    for i in range(len(cats_data)):
+        if cats_data[i][2] and cats_data[i][3] in our_str:
+            continue
+        our_str += f'{cats_data[i][2]} {cats_data[i][3]}: ' f'{cats_data[i][0]}, {cats_data[i][1]}'
+        for i_next in range(i + 1, len(cats_data)):
+            if cats_data[i_next][2:] == cats_data[i][2:]:
+                our_str += f'; {cats_data[i_next][0]}, {cats_data[i_next][1]}'
+        our_str += '\n'
+
     return our_str
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ

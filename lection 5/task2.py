@@ -7,7 +7,16 @@
 
 
 def repeats(our_str):
-    # Здесь нужно написать код
+    old_str = ''.join(map(str, our_str))
+    symbols = []
+
+    for i in range(len(old_str)):
+        if old_str[i] in symbols:
+            symbols.append(old_str[i] + '_' + str(old_str[:i].count(old_str[i]) + 2))
+        else:
+            symbols.append(str(old_str[i] + '_' + str(old_str[:i].count(old_str[i]) + 1)))
+    new_str = ''.join(map(str, symbols))
+
     return new_str
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
