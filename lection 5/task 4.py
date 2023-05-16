@@ -26,9 +26,9 @@ def scrabble(word):
         10: 'щ',
         15: 'ъ',
     }
-    for i in word:
+    for letter in word:
         for k, v in point_dict.items():
-            if i in v:
+            if letter in v:
                 points += k
 
     return points
