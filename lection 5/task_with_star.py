@@ -23,10 +23,7 @@ def to_roman(val):
         1000: 'M'
     }
 
-    div = 1
-    while val >= div:
-        div *= 10
-    div /= 10
+    div = 10 ** (len(str(val)) - 1)
 
     while val:
         last_num = int(val / div)
