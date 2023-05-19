@@ -20,8 +20,28 @@
 # PersonInfo('Александр Шленский', 32, 'Разработка', 'УК', 'Автотесты').new_salary() --> 385056 т.к.
 # т.к. буква "т" встречается 4 раза, "а" 3 раза, 'о' 2 раза, остальные по одной. Сумма трёх самых частых букв 4+3+2 = 9.
 # 1337*32*9 = 385056
+from collections import Counter
+class PersonInfo:
 
-# Здесь пишем код
+    def __init__(self, name, age, *where_work):
+        self.name = name
+        self.age = age
+        self.where_work = where_work
+
+    def short_name(self):
+        inp = self.name.split()
+        return f'{inp[1]} {inp[0][0]}.'
+
+    def path_deps(self):
+        return ' --> '.join(self.where_work)
+
+    def new_salary(self):
+        where_work_delete_space = ''.join(self.where_work)
+        sum_dict = Counter(where_work_delete_space).most_common(3)
+        sum_3 = sum_dict[0][1] + sum_dict[1][1] + sum_dict[2][1]
+        return 1337 * self.age * sum_3
+
+
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
