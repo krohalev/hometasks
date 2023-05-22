@@ -11,7 +11,6 @@
 class RomanNums:
         def __init__(self, roman_str):
                 self.roman_str = roman_str
-
         def from_roman(self):
 
                 arab_num = 0
@@ -32,9 +31,6 @@ class RomanNums:
                         else:
                                 arab_num -= roman_dict[i]
                 return arab_num
-
-
-                return roman_str
         def is_palindrome(self):
                 number = str(self.from_roman())
                 if number == number[::-1]:
