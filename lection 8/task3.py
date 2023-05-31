@@ -19,7 +19,7 @@ def segment(tuple_1, tuple_2):
     try:
         return tuple_1[0] + tuple_1[1] + tuple_2[0] + tuple_2[1]
     except TypeError as error:
-        return error.args[0][-1::-1]
+        return error.args[0][::-1]
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
