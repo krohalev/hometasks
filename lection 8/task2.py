@@ -22,14 +22,25 @@ class Trigon:
         В классе при инициализации происходит проверка на корректность переданных данных и генерируются исключения
         :param args: стороны треугольника
         """
+        self.conditions(*args)
+
+        self.args = args
+
+        self.is_triangle()
+
+    def is_triangle(self):
+        if self.args[0] + self.args[1] <= self.args[2] or self.args[0] + self.args[2] <= self.args[1] or self.args[1] + self.args[2] <= self.args[0]:
+            return Exception('Не треугольник')
+
+    @staticmethod
+    def conditions(*args):
         if len(args) != 3:
             raise IndexError(f'Передано {len(args)} аргументов, а ожидается 3')
         elif not (isinstance(args[0], int)) or not (isinstance(args[1], int)) or not (isinstance(args[2], int)):
             raise TypeError('Стороны должны быть числами')
         elif args[0] < 1 or args[1] < 1 or args[2] < 1:
             raise ValueError('Стороны должны быть положительными')
-        elif args[0] + args[1] <= args[2] or args[0] + args[2] <= args[1] or args[1] + args[2] <= args[0]:
-            raise Exception('Не треугольник')
+
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
