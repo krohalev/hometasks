@@ -3,7 +3,12 @@
 # Необходимо удалить все цифры и записать получившийся текст в файл test_file/task1_answer.txt
 
 
-# Здесь пишем код
+import re
+
+with open('test_file/task1_answer.txt', 'w', encoding='utf-8') as new_file:
+    with open("test_file/task1_data.txt", 'r', encoding='utf-8') as file:
+        for one_str in file:
+            new_file.write(re.sub(r'\d', '', one_str))
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
