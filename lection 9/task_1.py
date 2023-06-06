@@ -2,7 +2,6 @@
 # Он содержит текст, в словах которого есть цифры.
 # Необходимо удалить все цифры и записать получившийся текст в файл test_file/task1_answer.txt
 
-
 import re
 
 with open('test_file/task1_answer.txt', 'w', encoding='utf-8') as new_file:

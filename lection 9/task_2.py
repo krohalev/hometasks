@@ -31,5 +31,51 @@
 
 
 import datetime
+import time
 
-# Здесь пишем код
+def func_log(file_log='log.txt'):
+    """
+    Создание файла с названием функции и временем ее запуска
+    :param file_log: уть до файла
+    """
+    def log(func):
+        """
+        :param func: функция
+        """
+        def wrapper(*args, **kwargs):
+            """
+            Открывание и заполнение файла
+            """
+            with open(file_log, mode="a", encoding="utf-8") as test_file:
+                call_time = datetime.datetime.now().strftime("%d.%m %H:%M:%S")
+                test_file.write(f"{func.__name__} вызвана {call_time}\n")
+
+            res = func(*args, ** kwargs)
+            return res
+
+        wrapper.__doc__ = func.__doc__
+        wrapper.__name__ = func.__name__
+        wrapper.__wrapped__ = func
+        return wrapper
+    return log
+
+
+@func_log()
+def func1():
+    """функция"""
+    time.sleep(1)
+
+help(func1)
+@func_log(file_log='func2.txt')
+def func2():
+    """функция"""
+    time.sleep(1.1)
+
+help(func2)
+def func3():
+    """функция"""
+    time.sleep(1.2)
+
+help(func3)
+
+
