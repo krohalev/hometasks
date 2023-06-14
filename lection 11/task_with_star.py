@@ -23,7 +23,7 @@ try:
     driver.get(sbis_link)
     sleep(3)
     footer = driver.find_element(By.CSS_SELECTOR, ".sbisru-Footer__container")
-    driver.execute_script("return arguments[0].scrollIntoView(true);", footer)
+    footer.location_once_scrolled_into_view
     sleep(3)
     print('в Footer нашли "Скачать СБИС"')
     plugin_link = driver.find_element(By.LINK_TEXT, 'Скачать СБИС')
