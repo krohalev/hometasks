@@ -26,8 +26,7 @@ try:
     driver.execute_script("return arguments[0].scrollIntoView(true);", footer)
     sleep(3)
     print('в Footer нашли "Скачать СБИС"')
-    plugin_link = driver.find_element(By.XPATH, "//a[contains(@class, 'sbisru-Footer__link') and "
-                                                 "contains(text(), 'Скачать СБИС')]")
+    plugin_link = driver.find_element(By.LINK_TEXT, 'Скачать СБИС')
     plugin_link.click()
     sleep(3)
     print('Перешли на вкладку "СБИС Плагин"')

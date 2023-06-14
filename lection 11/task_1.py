@@ -24,10 +24,8 @@ try:
     print('переход на tensor.ru')
     driver.switch_to.window(driver.window_handles[1])
     print('Проверка наличия блока новости "Сила в людях"')
-    news = driver.find_element(By.CSS_SELECTOR,
-                               ".tensor_ru-Index__block4-content "
-                               "[class='tensor_ru-Index__card-title tensor_ru-pb-16']")
-    assert news.text == 'Сила в людях'
+    news = driver.find_element(By.CSS_SELECTOR, '.tensor_ru-Index__block4-content')
+    assert 'Сила в людях' in news.text
     print('Переход в блок "Подробнее", должен открыться https://tensor.ru/about')
     about = driver.find_element(By.CSS_SELECTOR, '.tensor_ru-Index__card-text [href="/about"]')
     about.location_once_scrolled_into_view

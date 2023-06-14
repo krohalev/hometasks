@@ -28,7 +28,6 @@ try:
     password = driver.find_element(By.NAME, "Password")
     password.send_keys(user_password, Keys.ENTER)
     sleep(2)
-    driver.get('https://fix-online.sbis.ru/ver.html')
     driver.get('https://fix-online.sbis.ru/page/dialogs')
     sleep(2)
     print('Клик по (+)')
